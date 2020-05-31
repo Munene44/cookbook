@@ -28,4 +28,7 @@ class Api::V1::RecipesController < ApplicationController
   def recipe_params
     params.permit(:name, :image, :ingredients, :instruction)
   end
+  def recipe
+    @recipe ||= Recipe.find(params[:id])
+  end
 end
