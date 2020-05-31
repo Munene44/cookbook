@@ -5,6 +5,12 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
+  	recipe = Recipe.create!(recipe_params)
+    if recipe
+      render json: recipe
+    else
+      render json: recipe.errors
+    end
   end
 
   def show
