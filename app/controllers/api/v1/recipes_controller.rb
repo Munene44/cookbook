@@ -18,4 +18,9 @@ class Api::V1::RecipesController < ApplicationController
 
   def destroy
   end
+  private
+
+  def recipe_params
+    params.permit(:name, :image, :ingredients, :instruction)
+  end
 end
